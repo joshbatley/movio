@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "target": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationMap": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es6", "es7", "dom"],
+    "jsx": "react",
+    "jsxFactory": "h",
+    "baseUrl": ".",
+    "paths": {
+      "*" : ["types/*"]
+    }
+  },
+  "include": [
+    "src/index.tsx",
+  ],
+  "exclude": ["node_modules"]
+}
