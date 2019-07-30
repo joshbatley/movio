@@ -4,6 +4,10 @@
   "license": "MIT",
   "repository": "git@github.com-personal:jbatley/movio",
   "author": "jbatley <jbatley12@gmail.com>",
+  "browserslist": [
+    "> 5%",
+    "last 2 versions"
+  ],
   "devDependencies": {
     "babel-preset-es2017": "^6.24.1",
     "eslint": "^6.1.0",
@@ -17,6 +21,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
     "preact-cli": "3.0.0-rc.4",
+    "serve": "^11.1.0",
     "typescript": "^3.5.3"
   },
   "dependencies": {
@@ -29,8 +34,8 @@
     "preact-render-to-string": "^5.0.6"
   },
   "scripts": {
-    "build": "preact build",
-    "serve": "preact build && preact serve",
+    "build": "preact build --no-sw --no-prerender --no-esm",
+    "serve": "npm run build && serve ./build",
     "dev": "preact watch"
   }
 }
