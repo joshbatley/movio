@@ -42,6 +42,7 @@ rules:
   react/jsx-uses-vars: 2
   react/jsx-filename-extension: 0
   react/jsx-one-expression-per-line: 0
+  react/no-unknown-property: 0
   "@typescript-eslint/explicit-function-return-type": 0
   "@typescript-eslint/indent":
     - "error"
