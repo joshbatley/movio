@@ -5,6 +5,7 @@
     "target": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "module": "esNext",
     "declaration": true,
     "declarationMap": true,
     "strict": true,
@@ -16,13 +17,15 @@
     "lib": ["es6", "es7", "dom"],
     "jsx": "react",
     "jsxFactory": "h",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "*" : ["types/*"]
+      "*" : ["*", "src/*"]
     }
   },
   "include": [
-    "src/index.tsx",
+    "types/*",
+    "src",
+    "src/index.ts",
   ],
   "exclude": ["node_modules"]
 }
