@@ -2,7 +2,7 @@ import Preact, { h, Fragment } from 'preact';
 import styles from './style.module.css';
 
 interface Props {
-  children: Preact.VNode;
+  children: Preact.VNode[] | Preact.VNode;
 }
 
 const Layout = ({ children }: Props) => (
