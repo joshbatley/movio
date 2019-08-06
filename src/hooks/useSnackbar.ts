@@ -1,5 +1,5 @@
 import { useContext } from 'preact/hooks';
-import SnackbarProvider from '../contexts/Snackbar';
+import SnackbarProvider from 'contexts/Snackbar';
 
 const useSnack = () => {
   const context = useContext(SnackbarProvider);
