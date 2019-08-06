@@ -1,7 +1,7 @@
 import Preact, { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
-
-import SnackbarContext from '../../contexts/Snackbar';
+import { id } from 'utils';
+import SnackbarContext from 'contexts/Snackbar';
 import styles from './style.module.css';
 
 interface Props {
@@ -19,7 +19,7 @@ const Layout = ({ children }: Props) => {
 
   const queueSnack = (msg: string) => {
     setSnacks([...snacks, {
-      key: new Date().getTime() + Math.random(),
+      key: id(),
       msg,
       level: 1,
     }]);

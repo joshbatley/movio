@@ -1,42 +1,64 @@
 import { h } from 'preact';
-import firebase from 'firebase/app';
+import { useEffect, useState } from 'preact/hooks';
+import { route } from 'preact-router';
+import { Form, Formik } from 'formik';
 
-import useSnackbar from '../hooks/useSnackbar';
-
+import useSnackbar from 'hooks/useSnackbar';
+import useAuth from 'hooks/useAuth';
+import Loading from 'components/Loading';
+import Input from 'components/Input';
 
 const Login = () => {
-  const { queueSnack } = useSnackbar();
-  const signin = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      console.log(result);
-      queueSnack('okurrrrrr');
-    }).catch((err) => {
-      queueSnack(err);
+  const { signInGoogle, signIn, getUser } = useAuth();
+  const [isLoading, setLoading] = useState(false);
+  useEffect(() => {
+    getUser((user) => {
+      if (user === null) {
+        route('/login', true);
+      }
     });
+  }, [getUser]);
+
+  const { queueSnack } = useSnackbar();
+  const signin = async () => {
+    try {
+      const result = await signInGoogle();
+      if (result !== null) {
+        route('/', true);
+      }
+    } catch (err) {
+      setLoading(false);
+      queueSnack(err);
+    }
   };
 
-  const snacky = () => queueSnack('I\'m feeling snacky');
-
-  const email = (e: any) => {
-    e.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(e.target[0].value, e.target[1].value)
-      .then((user) => {
-        queueSnack((user.additionalUserInfo && user.additionalUserInfo.username) || '');
-      }).catch((err) => {
-        queueSnack(err.message);
-      });
+  const email = async (values) => {
+    setLoading(true);
+    try {
+      const res = await signIn(values.email, values.password);
+      if (res !== null) {
+        route('/', true);
+      }
+    } catch (err) {
+      setLoading(false);
+      queueSnack(err);
+    }
   };
+
   return (
     <section>
+      { isLoading && (<Loading />) }
       <h1 style={{ width: '100%', background: 'red' }}>Login</h1>
       <button type="button" onClick={signin}>Sign in google</button>
-      <form onSubmit={email}>
-        <input type="text" name="email" />
-        <input type="password" name="password" />
-        <button type="submit">Email</button>
-      </form>
-      <button type="button" onClick={snacky}>Snacky?</button>
+      <Formik initialValues={{ email: '', password: '' }} onSubmit={email}>
+        {() => (
+          <Form>
+            <Input name="email" />
+            <Input name="password" />
+            <button type="submit">Email</button>
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };

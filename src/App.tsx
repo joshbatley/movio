@@ -1,8 +1,8 @@
 import { h } from 'preact';
+import Layout from 'components/Layout';
+import SnackbarProvider from 'components/SnackbarProvider';
 
 import Router from './Router';
-import Layout from './components/Layout/Layout';
-import SnackbarProvider from './components/SnackbarProvider';
 
 const App = () => (
   <SnackbarProvider>
