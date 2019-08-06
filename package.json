@@ -23,7 +23,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
-    "preact-cli": "3.0.0-rc.4",
+    "preact-cli": "3.0.0-rc.3",
     "preact-cli-plugin-env-vars": "^1.2.1",
     "serve": "^11.1.0",
     "typescript": "^3.5.3"
@@ -32,7 +32,7 @@
     "firebase": "^6.3.3",
     "formik": "2.0.1-rc.12",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0-rc.0",
+    "preact": "^10.0.0-rc.1",
     "preact-compat": "^3.19.0",
     "preact-helmet": "^4.0.0-alpha-3",
     "preact-portal": "^1.1.3",
