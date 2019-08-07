@@ -3,6 +3,13 @@ declare module '*.css' {
   export default styles;
 }
 
+interface UserProfile {
+  displayName: string | null;
+  email: string | null;
+  photoURL: string | null;
+  uid: string;
+}
+
 interface FbConfig {
   apiKey?: string;
   authDomain?: string;
