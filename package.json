@@ -14,8 +14,7 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-preact": "^2.0.0",
     "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-config-react-app": "^4.0.1",
+    "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-flowtype": "^3.12.2",
     "eslint-plugin-import": "^2.18.2",
@@ -43,6 +42,7 @@
   "scripts": {
     "build": "preact build --no-sw --no-prerender --no-esm",
     "serve": "npm run build && serve ./build",
-    "start": "preact watch"
+    "start": "preact watch",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   }
 }

@@ -9,15 +9,14 @@ import Loading from 'components/Loading';
 import Input from 'components/Input';
 
 const Login = () => {
-  const { signInGoogle, signIn, getUser } = useAuth();
+  const { signInGoogle, signIn, user } = useAuth();
   const [isLoading, setLoading] = useState(false);
+
   useEffect(() => {
-    getUser((user) => {
-      if (user === null) {
-        route('/login', true);
-      }
-    });
-  }, [getUser]);
+    if (user !== null) {
+      route('/', true);
+    }
+  }, [user]);
 
   const { queueSnack } = useSnackbar();
   const signin = async () => {

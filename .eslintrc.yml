@@ -1,16 +1,15 @@
 extends:
-  - 'plugin:@typescript-eslint/recommended'
-  - airbnb
+  - airbnb-typescript
 parser: '@typescript-eslint/parser'
 env:
   browser: true
   node: true
   es6: true
-  mocha: true
   jest: true
 plugins:
   - import
   - react
+  - react-hooks
   - '@typescript-eslint'
 settings:
   react:

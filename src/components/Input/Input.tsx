@@ -1,8 +1,12 @@
 import { h } from 'preact';
 import { useField } from 'formik';
 
-const Input = ({ name }) => {
-  const [field, meta] = useField(name);
+interface Props {
+  name: string;
+}
+
+const Input = ({ name }: Props) => {
+  const [field] = useField(name);
   return (
     <input type="text" {...field} />
   );
