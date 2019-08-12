@@ -6,7 +6,6 @@ import { FormikHelpers } from 'formik';
  */
 const id = (): number => new Date().getTime() + Math.random();
 
-
 const formSubmission = (
   func: () => Promise<void>,
   success: () => {},

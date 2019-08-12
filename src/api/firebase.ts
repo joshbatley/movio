@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 
 import 'firebase/auth';
 // import 'firebase/firestore';
+
 interface API {
   user: () => UserProfile | Promise<UserProfile>;
   signInWithPopUp: () => Promise<{}>;

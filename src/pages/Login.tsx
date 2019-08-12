@@ -13,7 +13,7 @@ interface Form {
   email: string;
   password: string;
 }
-
+        
 const Login = () => {
   const { signInGoogle, signIn, user } = useAuth();
   const [isLoading, setLoading] = useState(false);

@@ -5,11 +5,11 @@ import SnackbarProvider from 'components/SnackbarProvider';
 import Router from './Router';
 
 const App = () => (
-    <SnackbarProvider>
-      <Layout>
-        <Router />
-      </Layout>
-    </SnackbarProvider>
+  <SnackbarProvider>
+    <Layout>
+      <Router />
+    </Layout>
+  </SnackbarProvider>
 );
 
 

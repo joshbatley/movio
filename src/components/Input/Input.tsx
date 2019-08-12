@@ -6,5 +6,4 @@ const Input = (props: FieldAttributes<any>) => (
   <Field class={styles.input} {...props} />
 );
 
-
 export default Input;
