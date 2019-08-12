@@ -7,7 +7,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => (
   <Fragment>
-    <header>Movio</header>
+    {/* <header>Movio</header> */}
     <main class={styles.main}>
       {children}
     </main>

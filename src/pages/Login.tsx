@@ -7,7 +7,13 @@ import useSnackbar from 'hooks/useSnackbar';
 import useAuth from 'hooks/useAuth';
 import Loading from 'components/Loading';
 import Input from 'components/Input';
+import Google from 'components/Google';
 
+interface Form {
+  email: string;
+  password: string;
+}
+        
 const Login = () => {
   const { signInGoogle, signIn, user } = useAuth();
   const [isLoading, setLoading] = useState(false);
@@ -31,10 +37,10 @@ const Login = () => {
     }
   };
 
-  const email = async (values) => {
+  const email = async (values: Form) => {
     setLoading(true);
     try {
-      const res = await signIn(values.email, values.password);
+      const res = await signIn({ ...values });
       if (res !== null) {
         route('/', true);
       }
@@ -48,7 +54,6 @@ const Login = () => {
     <section>
       { isLoading && (<Loading />) }
       <h1 style={{ width: '100%', background: 'red' }}>Login</h1>
-      <button type="button" onClick={signin}>Sign in google</button>
       <Formik initialValues={{ email: '', password: '' }} onSubmit={email}>
         {() => (
           <Form>
@@ -58,6 +63,8 @@ const Login = () => {
           </Form>
         )}
       </Formik>
+      <hr />
+      <Google onClick={signin} />
     </section>
   );
 };
