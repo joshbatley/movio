@@ -1,15 +1,10 @@
 import { h } from 'preact';
-import { useField } from 'formik';
+import { FieldAttributes, Field } from 'formik';
+import styles from './style.modules.css';
 
-interface Props {
-  name: string;
-}
+const Input = (props: FieldAttributes<any>) => (
+  <Field class={styles.input} {...props} />
+);
 
-const Input = ({ name }: Props) => {
-  const [field] = useField(name);
-  return (
-    <input type="text" {...field} />
-  );
-};
 
 export default Input;

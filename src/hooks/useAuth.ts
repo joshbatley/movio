@@ -34,6 +34,9 @@ const useAuth = () => {
     signIn: api.signIn,
     user: profile,
     signOut,
+    updateEmail: api.updateEmail,
+    updatePassword: api.updatePassword,
+    updateName: api.updateName,
   });
 };
 
